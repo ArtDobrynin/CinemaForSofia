@@ -1,13 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35806.99 d17.13
+VisualStudioVersion = 17.13.35806.99
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapyAuth.Api", "src\Identity\CapyFilms.Api\CapyAuth.Api.csproj", "{B7BD55D2-AC79-4763-8194-E1095B68E245}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapyFilms.Api", "src\Identity\CapyAuth.Api\CapyFilms.Api.csproj", "{B7BD55D2-AC79-4763-8194-E1095B68E245}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Identity", "Identity", "{A16E5E41-8341-4076-BDEB-C396A29D18E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapyFilms.Application", "src\Identity\CapyAuth.Application\CapyFilms.Application.csproj", "{2FBBE948-5547-4B42-B9D9-611785DFC6B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapyFilms.Infrastructure", "src\Identity\CapyAuth.Infrastructure\CapyFilms.Infrastructure.csproj", "{360C39F4-D2AA-4C53-8EE2-1C5FB14C24B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capy.Domain", "src\Capy.Domain\Capy.Domain.csproj", "{F34E8914-9721-49FE-A67B-E3A74BDA314A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capy.Common", "src\Capy.Common\Capy.Common.csproj", "{C8B22C6B-69F4-49BF-A311-1AF123D0510A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,6 +27,22 @@ Global
 		{B7BD55D2-AC79-4763-8194-E1095B68E245}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7BD55D2-AC79-4763-8194-E1095B68E245}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7BD55D2-AC79-4763-8194-E1095B68E245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FBBE948-5547-4B42-B9D9-611785DFC6B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBBE948-5547-4B42-B9D9-611785DFC6B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBBE948-5547-4B42-B9D9-611785DFC6B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBBE948-5547-4B42-B9D9-611785DFC6B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{360C39F4-D2AA-4C53-8EE2-1C5FB14C24B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{360C39F4-D2AA-4C53-8EE2-1C5FB14C24B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{360C39F4-D2AA-4C53-8EE2-1C5FB14C24B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{360C39F4-D2AA-4C53-8EE2-1C5FB14C24B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F34E8914-9721-49FE-A67B-E3A74BDA314A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F34E8914-9721-49FE-A67B-E3A74BDA314A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F34E8914-9721-49FE-A67B-E3A74BDA314A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F34E8914-9721-49FE-A67B-E3A74BDA314A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8B22C6B-69F4-49BF-A311-1AF123D0510A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8B22C6B-69F4-49BF-A311-1AF123D0510A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8B22C6B-69F4-49BF-A311-1AF123D0510A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8B22C6B-69F4-49BF-A311-1AF123D0510A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -26,6 +50,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{B7BD55D2-AC79-4763-8194-E1095B68E245} = {A16E5E41-8341-4076-BDEB-C396A29D18E8}
 		{A16E5E41-8341-4076-BDEB-C396A29D18E8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{2FBBE948-5547-4B42-B9D9-611785DFC6B2} = {A16E5E41-8341-4076-BDEB-C396A29D18E8}
+		{360C39F4-D2AA-4C53-8EE2-1C5FB14C24B5} = {A16E5E41-8341-4076-BDEB-C396A29D18E8}
+		{F34E8914-9721-49FE-A67B-E3A74BDA314A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{C8B22C6B-69F4-49BF-A311-1AF123D0510A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6C5B7858-9B2B-4F6F-A5E9-54FD6A63C908}

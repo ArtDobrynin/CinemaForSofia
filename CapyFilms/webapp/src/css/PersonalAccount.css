@@ -1,0 +1,200 @@
+/* Стили для контейнера формы */
+.form-container {
+    background: #FFFFFF;
+    padding: 90px 44px 40px 44px;
+    border-radius: 50px;
+    min-width: 650px;
+    min-height: 880px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0;
+}
+
+/* Стили для заголовка */
+.form-container h2 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 24px;
+    color: #333333;
+    text-align: center;
+    margin: 0 0 40px 0;
+    width: 100%;
+}
+
+/* Стили для группы полей */
+.form-group {
+    margin: 0 0 25px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.form-group label {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    margin: 0;
+    min-width: 120px;
+    text-align: left;
+    flex-shrink: 0;
+}
+
+.form-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 350px;
+    min-height: 50px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #F0E0B5;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #333333;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 30px;
+    flex-grow: 1;
+}
+
+.submit-button {
+    min-width: 350px;
+    min-height: 50px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: none;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: left;
+    color: #749BC1;
+    margin: 15px 0 0 0;
+    line-height: 30px;
+    text-decoration: underline;
+    text-decoration-color: #749BC1;
+}
+
+.submit-button:hover {
+    background: none;
+    text-decoration: underline;
+    text-decoration-color: #749BC1;
+}
+
+/* Стили для группы кнопок */
+.button-group {
+    display: flex;
+    flex-direction: column; /* Кнопки расположены вертикально */
+    gap: 10px; /* Отступ между кнопками */
+    margin-top: 15px; /* Отступ сверху от полей формы */
+}
+
+.cinema_panel {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    max-width: 1470px;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    /* Убираем overflow-x: hidden, если он не нужен отдельно */
+}
+
+.cinema_list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 1470px;
+    /* Убираем overflow-x: hidden, так как он уже в .main-frame */
+}
+
+/* Стили для элементов списка кино */
+.cinema_element {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стили для карточки кино */
+.cinema_card {
+    width: 100%;
+    text-align: center;
+}
+
+/* Стили для постера и иконок */
+.poster-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.img_cinema {
+    width: 200px;
+    height: auto;
+    border-radius: 10px;
+    display: block; /* Убедимся, что изображение занимает правильное пространство */
+}
+
+.save-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 10;
+    opacity: 0; /* Скрываем иконку по умолчанию */
+    transition: opacity 0.3s ease; /* Плавное появление */
+}
+
+.save-icon-img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+.watched-icon {
+    position: absolute;
+    top: 35px;
+    right: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 10;
+    opacity: 0; /* Скрываем иконку по умолчанию */
+    transition: opacity 0.3s ease; /* Плавное появление */
+}
+
+.watched-icon-img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+
+/* Показываем иконки при наведении на poster-wrapper */
+.poster-wrapper:hover .save-icon,
+.poster-wrapper:hover .watched-icon {
+    opacity: 1; /* Показываем иконки */
+}

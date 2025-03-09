@@ -1,0 +1,563 @@
+/* Сброс стилей по умолчанию */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Общие стили для html и body */
+html,
+body {
+  height: 100%; /* Растягиваем html и body на всю высоту */
+  width: 100%;
+  overflow-x: hidden; /* Убираем горизонтальную прокрутку */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F7CC8C; /* Гарантируем фон */
+}
+
+/* Основной контейнер */
+.main-container {
+  width: 100vw;
+  height: 100vh; /* Занимаем всю высоту экрана */
+  background-color: #F7CC8C; /* Твой желаемый цвет */
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto 1fr;
+  overflow-x: hidden; /* Убираем горизонтальный скроллинг */
+  position: relative; /* Для фиксированной навигации */
+}
+
+/* Содержимое внутри основного контейнера */
+.main-content {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  width: 100%;
+  max-width: 1470px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* Скроллинг для всего контента */
+  height: 100vh; /* Фиксируем высоту на весь экран */
+  position: relative; /* Для абсолютного позиционирования */
+}
+
+/* Состояние для верхнего выравнивания (Header + Content) */
+.main-content--top {
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.content-wrapper--centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Убедитесь, что высота позволяет центрировать */
+}
+
+/* Стили для content_frame (внутренний контейнер для Header, Genre, CinemaList) */
+.content_frame {
+  width: 100%;
+  max-width: 1470px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px; /* Отступы между Header, Genre, и CinemaList */
+  justify-content: flex-start;
+  align-items: center;
+  flex-grow: 1; /* Позволяем содержимому растягиваться */
+}
+
+/* Стили для header_frame */
+.header_frame {
+  width: 100%;
+  max-width: 1470px;
+  margin: 20px auto 30px; /* Отступы сверху и снизу */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Стили для cinema_panel */
+.cinema_panel {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  max-width: 1470px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* Стили для cinema_list */
+.cinema_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическое заполнение колонок */
+  gap: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%; /* Убедимся, что ширина 100% */
+  max-width: 1470px; /* Ограничиваем максимальную ширину */
+}
+
+/* Стили для элементов списка кино */
+.cinema_element {
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Стили для карточки кино */
+.cinema_card {
+  width: 100%;
+  text-align: center;
+  background-color: #f4f4f4; /* Фон карточки */
+  border-radius: 8px; /* Закругление углов */
+  overflow: hidden; /* Для закругления углов изображения */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+  padding: 10px; /* Внутренние отступы */
+}
+
+/* Обёртка для изображения и иконки */
+.poster-wrapper {
+  position: relative;
+  width: 100%;
+  z-index: 0; /* Базовый уровень для обёртки */
+}
+
+/* Стили для изображения */
+.img_cinema {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  position: relative; /* Устанавливаем позиционирование */
+  z-index: 1; /* Уровень ниже иконки */
+}
+
+/* Стили для иконки сохранения */
+.save-icon {
+  position: absolute;
+  top: 10px; /* Позиция в верхнем углу */
+  right: 10px; /* Позиция в правом углу */
+  opacity: 0; /* Скрыта по умолчанию */
+  transition: opacity 0.2s ease;
+  background: none;
+  border: none; /* Убеждаемся, что рамки нет */
+  outline: none; /* Убираем обводку при фокусе */
+  padding: 0;
+  cursor: pointer;
+  z-index: 10; /* Увеличиваем z-index для надёжности */
+}
+
+/* Показываем иконку при наведении на .poster-wrapper */
+.poster-wrapper:hover .save-icon {
+  opacity: 1; /* Появляется при наведении */
+}
+
+/* Стили для изображения иконки */
+.save-icon-img {
+  width: 32px; /* Настраиваем размер иконки */
+  height: 32px;
+  display: block;
+  border: none; /* Убираем возможную рамку */
+  outline: none; /* Убираем обводку */
+}
+
+/* Стили для названия кино */
+.name_cinema {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  margin: 10px 0 5px;
+}
+
+/* Стили для статуса кино */
+.status_cinema {
+  font-size: 20px;
+  color: #749BC1B2;
+  font-family: "Roboto", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Стили для поля поиска */
+.search_cinema {
+  width: 100%; /* Адаптивная ширина */
+  max-width: 1600px; /* Увеличим максимальную ширину для удобства */
+  min-height: 70px;
+  border: none;
+  border-radius: 40px;
+  outline: none;
+  background-image: url("../img/searchIcons.svg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-origin: content-box;
+  padding-right: 15px;
+  box-sizing: border-box; /* Учитываем padding в ширине */
+  font-size: 1em; /* Убедимся, что текст внутри читаем */
+}
+
+.nav_panel {
+  position: fixed;
+  height: 100vh; /* Гарантируем полную высоту экрана */
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  border-right: solid 1px #749BC1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  top: 0; /* Привязываем к верху */
+  bottom: 0; /* Привязываем к низу */
+}
+
+/* Стили для элементов в панели навигации */
+.main_nav_elements {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  margin-bottom: 52px;
+}
+
+/* Стили для иконок в навигации */
+.main_icons {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+/* Стили для логотипа */
+.logo {
+  max-width: 100px;
+  max-height: 100px;
+  margin-top: 20px; /* Добавляем отступ сверху */
+}
+
+/* Стили для жанра */
+.genre {
+  min-width: 140px; /* Минимальная ширина */
+  min-height: 50px; /* Минимальная высота */
+  background-color: #ffffff; /* Белый фон для жанра */
+  color: #333; /* Цвет текста */
+  font-size: 20px; /* Размер шрифта */
+  font-family: "Roboto", serif;
+  font-weight: 300;
+  font-style: normal; /* Шрифт */
+  border: none;
+  border-radius: 40px; /* Радиус скругления углов */
+  display: flex;
+  justify-content: center; /* Центрируем текст по горизонтали */
+  align-items: center; /* Центрируем текст по вертикали */
+  padding: 10px 20px; /* Внутренние отступы */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+  cursor: pointer; /* Указатель при наведении */
+  transition: background-color 0.3s ease; /* Плавный переход фона при наведении */
+}
+
+.genre:hover {
+  background-color: #f1f1f1; /* Цвет фона при наведении */
+}
+
+/* Адаптивные стили для жанра */
+@media (max-width: 768px) {
+  .genre {
+    min-width: 120px;
+    font-size: 18px;
+    padding: 8px 16px;
+  }
+}
+
+/* Стили для списка жанров */
+.genre_list {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  list-style-type: none;
+}
+
+/* Подключение шрифта Roboto */
+@font-face {
+  font-weight: 400;
+  font-family: Roboto;
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
+/* Стили для RandomizerForm */
+.randomizer-container {
+  width: 100%;
+  max-width: 1470px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.randomizer-title {
+  font-family: "Roboto", serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 24px;
+  margin-bottom: 20px; /* Отступ снизу */
+  text-align: left; /* Выравнивание по левому краю */
+  width: 100%; /* Убедимся, что заголовок занимает всю ширину */
+}
+
+.randomizer-content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 30px;
+  position: relative;
+  justify-content: space-between;
+}
+
+.randomizer-filters {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Отступ между фильтрами и кнопкой */
+  width: 40%;
+  align-items: center; /* Центрируем содержимое */
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%; /* Каждый фильтр занимает всю ширину контейнера */
+}
+
+.filter-label {
+  font-family: "Roboto", serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  width: 100%;
+  text-align: left;
+}
+
+.randomizer-select,
+.randomizer-input {
+  width: 100%;
+  padding: 10px;
+  font-family: "Roboto", serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для выпадающего списка */
+.randomizer-select {
+  background-color: #749BC1; /* Цвет фона */
+  color: #000000; /* Чёрный текст */
+  transition: background-color 0.3s ease; /* Плавная анимация для смены фона */
+}
+
+/* Стили для элементов выпадающего списка */
+.randomizer-select option {
+  background-color: transparent; /* Прозрачный фон по умолчанию */
+  color: #000000; /* Чёрный текст */
+}
+
+/* При наведении на элемент списка - белый фон */
+.randomizer-select option:hover {
+  background-color: #ffffff; /* Белый фон при наведении */
+  color: #000000; /* Чёрный текст */
+}
+
+/* При фокусе или выборе меняем фон на светло-голубой */
+.randomizer-select:focus,
+.randomizer-select:active {
+  background-color: #A8C4E0; /* Светло-голубой фон при выборе */
+  color: #000000; /* Чёрный текст */
+}
+
+.randomizer-input {
+  background-color: #749BC180; /* Цвет с 50% прозрачностью */
+  color: #000000; /* Чёрный текст */
+}
+
+.randomizer-input::placeholder {
+  color: #749BC1B2;
+  font-family: "Roboto", serif;
+  font-size: 14px;
+}
+
+.randomizer-select:focus,
+.randomizer-input:focus {
+  outline: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.randomize-button {
+  padding: 10px 20px;
+  font-family: "Roboto", serif;
+  font-size: 16px;
+  background-color: #749BC1; /* Цвет фона */
+  color: #ffffff; /* Белый текст */
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  min-width: 400px; /* Минимальная ширина */
+  min-height: 100px; /* Минимальная высота */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Анимация для фона и текста */
+  align-self: center; /* Центрируем кнопку */
+  margin-top: 20px; /* Отступ сверху от фильтров */
+}
+
+.randomize-button:hover {
+  background-color: #ffffff; /* Белый фон при наведении */
+  color: #749BC1; /* Цвет текста при наведении */
+}
+
+.divider-line {
+  position: absolute;
+  width: 5px; /* Уточняем ширину линии */
+  height: 100%; /* Линия занимает всю высоту контейнера */
+  left: 50%; /* Центрируем по горизонтали */
+  top: 0;
+  background-color: #749BC1; /* Цвет линии */
+  transform: translateX(-50%); /* Смещаем на половину ширины */
+}
+
+.random-film-section {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.random-film-card {
+  width: 100%;
+  text-align: center;
+  background-color: #f4f4f4; /* Такой же фон, как у cinema-card */
+  border-radius: 8px; /* Закругление углов */
+  overflow: hidden; /* Для закругления углов изображения */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень */
+  padding: 10px; /* Внутренние отступы */
+  max-width: 300px; /* Максимальная ширина */
+}
+
+.poster-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.img_cinema {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+
+.poster-placeholder {
+  width: 100%;
+  height: 300px;
+  background: #f0f0f0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto", serif;
+  font-size: 14px;
+  color: #749BC1B2;
+}
+
+.save-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.poster-wrapper:hover .save-icon {
+  opacity: 1;
+}
+
+.save-icon-img {
+  width: 32px;
+  height: 32px;
+  display: block;
+  border: none;
+  outline: none;
+}
+
+/* Адаптивность для RandomizerForm */
+@media (max-width: 768px) {
+  .randomizer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .randomizer-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .randomizer-filters {
+    width: 100%;
+    align-items: center;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .randomizer-select,
+  .randomizer-input {
+    max-width: 100%;
+  }
+
+  .random-film-section {
+    width: 100%;
+  }
+
+  .random-film-card {
+    max-width: 100%;
+  }
+
+  .divider-line {
+    width: 80%;
+    height: 5px;
+    left: 50%;
+    top: auto;
+    background-color: #749BC1;
+    transform: translateX(-50%) rotate(0deg);
+    margin: 20px 0;
+  }
+
+  .randomize-button {
+    align-self: center;
+    margin-top: 20px;
+    min-width: 300px; /* Уменьшаем минимальную ширину для мобильных устройств */
+    min-height: 80px; /* Уменьшаем минимальную высоту для мобильных устройств */
+  }
+}

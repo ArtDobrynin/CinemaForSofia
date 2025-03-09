@@ -1,4 +1,4 @@
-using CapyAuth.Api;
+using CapyFilms.Api;
 
 public class Program
 {
